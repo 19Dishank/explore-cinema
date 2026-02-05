@@ -1,33 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const AxiosMovieCard = ({ ele }) => {
     const { Poster, Title, Year, imdbID } = ele;
 
     return (
-        <div className=" w-72 bg-slate-800 rounded-xl overflow-hidden shadow-xl border border-slate-800 ">
+        /* Removed w-72 for a responsive width */
+        <div className="w-full max-w-[300px] bg-slate-900 rounded-xl overflow-hidden shadow-xl border border-slate-800 flex flex-col transition-transform hover:scale-[1.02]">
+            
+            <div className="aspect-[2/3] overflow-hidden">
+                <img
+                    src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/300x450"}
+                    alt={Title}
+                    className="w-full h-full object-cover"
+                />
+            </div>
 
-            <img
-                src={Poster}
-                alt="Movie Poster"
-                className="w-full aspect-2/3]object-cover"
-            />
-
-            <div className="p-5 ">
-                <div className="flex flex-col justify-between items-start mb-2">
-                    <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">{Year} </span>
-                    {/* <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">{Genre}  </span> */}
+            <div className="p-5 flex flex-col flex-grow">
+                <div className="mb-2">
+                    <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">
+                        {Year}
+                    </span>
                 </div>
-                {/* <span className="text-yellow-500 text-xs font-black"> {imdbRating} ★</span> */}
 
-                <h3 className="text-white text-xl font-black leading-tight mb-4">
+                <h3 className="text-white text-lg font-bold leading-tight mb-6 line-clamp-2 h-12">
                     {Title}
                 </h3>
-                <div className="flex flex-col justify-between items-start mb-2">
-                    {/* <span className="text-slate-400 text-xs font-bold capitalize tracking-wider"> BoxOffice {BoxOffice} </span> */}
-                </div>
-                <NavLink to={`/movie/${imdbID}`}>
-                    <button disabled={true} className=" left-0 disabled:bg-gray-400 w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 rounded-lg transition-colors text-sm">
+                
+                <NavLink to={`/movie/${imdbID}`} className="mt-auto">
+                    {/* Removed disabled={true} and adjusted padding */}
+                    <button className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-lg transition-all active:scale-95 text-sm">
                         Movie Details
                     </button>
                 </NavLink>

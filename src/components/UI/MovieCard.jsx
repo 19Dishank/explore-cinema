@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const MovieCard = ({ ele, getMoviesData }) => {
-    const { Poster, Title, Year,imdbID } = ele;
+const MovieCard = ({ ele }) => {
+    const { Poster, Title, Year, imdbID } = ele;
 
     return (
-        <div className="w-72 items-stretch bg-slate-800  rounded-xl overflow-hidden shadow-xl border border-slate-800 ">
-           
-            <img
-                src={Poster}
-                alt="Movie Poster"
-                className="w-full aspect-2/3]object-cover"
-            />
+        <div className="w-full max-w-[300px] flex flex-col bg-slate-900 rounded-xl overflow-hidden shadow-xl border border-slate-800 transition-transform duration-300 hover:-translate-y-2">
+            
+            {/* Poster Container */}
+            <div className="aspect-[2/3] overflow-hidden bg-slate-800">
+                <img
+                    src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/300x450?text=No+Poster"}
+                    alt={Title}
+                    className="w-full h-full object-cover"
+                />
+            </div>
 
-            <div className="p-5">
-                <div className="flex flex-col justify-between items-start mb-2">
-                    <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">{Year} </span>
-                    {/* <span className="text-slate-400 text-xs font-bold uppercase tracking-wider">{Genre}  </span> */}
+            {/* Content Container */}
+            <div className="p-5 flex flex-col flex-grow">
+                <div className="flex justify-between items-start mb-2">
+                    <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">
+                        {Year}
+                    </span>
                 </div>
-                {/* <span className="text-yellow-500 text-xs font-black"> {imdbRating} ★</span> */}
 
-                <h3 className="text-white text-xl font-black leading-tight mb-4">
+                <h3 className="text-white text-lg font-bold leading-tight mb-6 line-clamp-2 h-12">
                     {Title}
                 </h3>
-                <div className="flex flex-col justify-between items-start mb-2">
-                    {/* <span className="text-slate-400 text-xs font-bold capitalize tracking-wider"> BoxOffice {BoxOffice} </span> */}
+                
+                {/* Push button to bottom */}
+                <div className="mt-auto">
+                    <NavLink to={`/movie/${imdbID}`}>
+                        <button className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2.5 rounded-lg transition-all active:scale-95 text-sm uppercase tracking-wide">
+                            Movie Details
+                        </button>
+                    </NavLink>
                 </div>
-                <NavLink to={`/movie/${imdbID}`}>
-                <button className="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-2 rounded-lg transition-colors text-sm">
-                    Movie Details
-                </button>
-                </NavLink>
             </div>
         </div>
     );

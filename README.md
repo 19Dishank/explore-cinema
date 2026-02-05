@@ -15,3 +15,27 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 "# explore-cinema" 
+
+1. React Navigation & Routing
+    - Dynamic Routing
+    - Navigation Hooks
+    - Active State Logic
+    - Error Boundaries
+2. Data Fetching Strategies
+    - Declarative Fetching
+    - Imperative Fetching
+    - Library Integration
+    - API Management
+3. Data Logic & Processing
+    - Array Transformation
+    - String Parsing
+    - Time Algorithms
+    - Object Mapping
+4. Modern Form Handling
+    - Router Actions
+    - Request Interception
+    - Validation Attributes
+5. Component Architecture
+    - Prop Distribution
+    - Code Splitting
+    - Conditional Rendering

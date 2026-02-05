@@ -4,13 +4,14 @@ import MovieCard from '../components/UI/MovieCard';
 
 const Movie = () => {
     const getMoviesData = useLoaderData();
-    console.log(getMoviesData);
+    
     return (
-        // <div className='grid grid-cols-4 gap-4 px-10 py-5 place-items-center'>
-        //     <MovieCard getMoviesData={getMoviesData}/>    
-        // </div>
-        <div className=' bg-slate-950 grid xl:grid-cols-4 lg:grid-cols-3  sm:grid-cols-1 md:grid-cols-2 gap-4 px-10 py-5 place-items-center'>
-            {getMoviesData.Search.map((ele) => <MovieCard key={ele.imdbID} ele={ele}/>)}
+        <div className='bg-slate-950 min-h-screen'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-4 md:px-10 py-10 max-w-7xl mx-auto place-items-center'>
+                {getMoviesData?.Search?.map((ele) => (
+                    <MovieCard key={ele.imdbID} ele={ele}/>
+                ))}
+            </div>
         </div>
     );
 };
