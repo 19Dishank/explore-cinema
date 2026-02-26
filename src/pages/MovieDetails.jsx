@@ -5,9 +5,9 @@ import { ArrowLeft } from 'lucide-react'; // Optional icon
 const MovieDetails = () => {
     const navigate = useNavigate();
     const movieData = useLoaderData();
-    
+
     const { Poster, Title, Year, BoxOffice, Runtime, imdbRating, Genre, Director, Actors, Plot, Awards } = movieData;
-    
+
     const handleBack = () => {
         navigate(-1);
     };
@@ -21,11 +21,11 @@ const MovieDetails = () => {
     return (
         <div className="bg-slate-950 min-h-screen text-white">
             <div className="w-full max-w-5xl mx-auto px-4 py-8 md:py-12 flex flex-col items-center">
-                
+
                 {/* Back Button Container */}
                 <div className="w-full max-w-2xl mb-6 flex justify-start">
-                    <button 
-                        onClick={handleBack} 
+                    <button
+                        onClick={handleBack}
                         className='group flex items-center gap-2 px-5 py-2 border border-slate-700 hover:border-indigo-500 text-slate-300 hover:text-white rounded-full transition-all duration-300 bg-slate-900/50 backdrop-blur-sm'
                     >
                         <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
@@ -35,13 +35,13 @@ const MovieDetails = () => {
 
                 {/* Movie Detail Card */}
                 <div className="flex flex-col md:flex-row w-full max-w-2xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-800 transition-all duration-300 hover:border-slate-700">
-                    
+
                     {/* Poster Section */}
                     <div className="relative w-full md:w-80 shrink-0">
                         <img
                             src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/300x450"}
                             alt={Title}
-                            className="w-full h-full object-cover aspect-[2/3] md:aspect-auto"
+                            className="w-full h-full object-cover aspect-2/3 md:aspect-auto"
                         />
                         <div className="absolute top-4 left-4 bg-yellow-500 text-black px-2 py-1 rounded font-black text-xs shadow-lg">
                             {imdbRating} ★

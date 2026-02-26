@@ -6,7 +6,7 @@ export const contactData = async ({ request }) => {
         const res = await request.formData();
         const data = Object.fromEntries(res);
         console.log(data);
-        return { success: true }; // Actions must return a value
+        return { success: true };
     } catch (error) {
         console.log(error);
         return { error: "Failed to submit" };
@@ -16,11 +16,11 @@ export const contactData = async ({ request }) => {
 const Contact = () => {
     return (
         <div className='min-h-[calc(100vh-60px)] py-10 md:py-20 flex flex-col justify-center items-center bg-slate-950 px-4'>
-            
-            {/* Form Container */}
-            <div className='w-full max-w-md'> 
+
+
+            <div className='w-full max-w-md'>
                 <div className='border border-fuchsia-700/50 p-2 rounded-2xl bg-slate-900/40 backdrop-blur-sm shadow-2xl shadow-indigo-900/30'>
-                    
+
                     <div className='text-2xl md:text-3xl font-bold text-indigo-400 uppercase text-center py-6 tracking-widest'>
                         Contact <span className='text-white'>Us</span>
                     </div>
@@ -70,7 +70,7 @@ const Contact = () => {
                 </div>
             </div>
 
-            
+
         </div>
     );
 };

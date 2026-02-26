@@ -1,13 +1,10 @@
 import React from 'react';
 import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Navbar from './components/Navbar';
 import Contact, { contactData } from './pages/Contact';
 import About from './pages/About';
-import Footer from './components/Footer';
 import Layout from './components/Layout';
 import ErrorPage from './pages/ErrorPage';
-import NotFound from './pages/NotFound';
 import Movie from './pages/Movie';
 import { getApiData } from './APIs/ApiData';
 import { getMovieDetails } from './APIs/MovieDetails';
@@ -38,12 +35,12 @@ const App = () => {
         {
           path: "/movie/fetch",
           element: <Movie />,
-          loader:getApiData,
+          loader: getApiData,
         },
         {
           path: "/movie/axios",
           element: <MovieAxios />,
-          loader:getApiData
+          loader: getApiData
         },
         {
           path: "/movie/:movieID",
@@ -52,7 +49,7 @@ const App = () => {
         }
       ]
     },
-  
+
   ])
 
   return <RouterProvider router={router} />

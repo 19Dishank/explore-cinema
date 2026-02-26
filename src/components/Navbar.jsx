@@ -8,17 +8,16 @@ const Navbar = () => {
     const toggleMenu = () => setIsOpen(!isOpen);
 
     // Dynamic Tailwind classes for NavLinks
-    const linkStyles = ({ isActive }) => 
-        `transition-all duration-300 px-1 py-1 uppercase font-bold tracking-wide ${
-            isActive 
-            ? "text-indigo-500 border-b-2 border-indigo-500" 
+    const linkStyles = ({ isActive }) =>
+        `transition-all duration-300 px-1 py-1 uppercase font-bold tracking-wide ${isActive
+            ? "text-indigo-500 border-b-2 border-indigo-500"
             : "text-slate-300 hover:text-white hover:border-b-2 hover:border-slate-500"
         }`;
 
     return (
         <nav className="bg-black border-b border-slate-800 sticky top-0 z-50">
             <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-                
+
                 {/* Logo Section */}
                 <div className="text-2xl font-black italic tracking-tighter text-slate-100 shrink-0">
                     EXPLORE<span className="text-indigo-500">CINEMA</span>
@@ -63,9 +62,9 @@ export const NavLinks = ({ linkStyles, onClick }) => {
     return (
         <>
             {routes.map((route) => (
-                <NavLink 
-                    key={route.path} 
-                    to={route.path} 
+                <NavLink
+                    key={route.path}
+                    to={route.path}
                     className={linkStyles}
                     onClick={onClick}
                 >
